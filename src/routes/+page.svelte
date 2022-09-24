@@ -25,6 +25,7 @@
             <div class="movie_container">
                 <h3>{movieTitle[0]}</h3>
                 <img src={`https://www.themoviedb.org/t/p/original${movieTitle[1]}`} alt="movie_poster"/>
+                <img class="tmdb_attribution" src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg" alt="tmdb_attribution"/>
             </div>
         {/each}
     </div>
@@ -32,6 +33,11 @@
 </main>
 
 <style>
+    .tmdb_attribution {
+        width: 100px;
+        margin: 10px;
+    }
+
     .movie_box {
         display: flex;
         flex-wrap: wrap;
@@ -47,7 +53,7 @@
         justify-content: center;
         align-items: center;
         width: 150px;
-        height: 250px;
+        height: 275px;
         border: 2px solid black;
         border-radius: 5px;
     }
