@@ -22,7 +22,14 @@
     <h1>Popular Movie Titles!</h1>
     <ul>
         {#each $movieNames as movieTitle}
-            <li>{movieTitle}</li>
+            <img src={`https://www.themoviedb.org/t/p/original${movieTitle[1]}`} alt="movie_poster"/>
+            <li>{movieTitle[0]}</li>
         {/each}
     </ul>
 </main>
+
+<style>
+    img {
+        width: 100px;
+    }
+</style>
