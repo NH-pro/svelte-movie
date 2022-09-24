@@ -20,15 +20,38 @@
 
 <main>
     <h1>Popular Movie Titles!</h1>
-    <ul>
+    <div class="movie_box">
         {#each $movieNames as movieTitle}
-            <img src={`https://www.themoviedb.org/t/p/original${movieTitle[1]}`} alt="movie_poster"/>
-            <li>{movieTitle[0]}</li>
+            <div class="movie_container">
+                <h3>{movieTitle[0]}</h3>
+                <img src={`https://www.themoviedb.org/t/p/original${movieTitle[1]}`} alt="movie_poster"/>
+            </div>
         {/each}
-    </ul>
+    </div>
+
 </main>
 
 <style>
+    .movie_box {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .movie_container {
+        padding: 5px;
+        margin: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 250px;
+        border: 2px solid black;
+        border-radius: 5px;
+    }
+
     img {
         width: 100px;
     }
