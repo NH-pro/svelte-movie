@@ -108,4 +108,9 @@
         box-shadow: 0px 0px black;
     }
 
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
 </style>
