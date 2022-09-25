@@ -28,11 +28,11 @@
     </header>
 
     <div class="movie_box">
-        {#each $movieNames as movieTitle}
-            <div class="movie_container">
-                <img class="movie_poster" src={`https://www.themoviedb.org/t/p/original${movieTitle[1]}`} alt="movie_poster"/>
-                <h3 class="movie_title" >{movieTitle[0]}</h3>
-            </div>
+        {#each $movieNames as movie}
+            <a class="movie_container" href={`../details/${movie[0]}`}>
+                <img class="movie_poster" src={`https://www.themoviedb.org/t/p/original${movie[1]}`} alt="movie_poster"/>
+                <h3 class="movie_title" >{movie[0]}</h3>
+            </a>
         {/each}
     </div>
 
