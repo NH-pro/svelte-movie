@@ -22,7 +22,7 @@
     <header>
         <h1>Svelte Movie Theatre</h1>
         <div class="header_att">
-            <h3>Movie data attributed to TMDB</h3>
+            <h3>Movie data attributed to:</h3>
             <img class="tmdb_attribution" src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg" alt="tmdb_attribution"/>
         </div>
     </header>
@@ -30,8 +30,8 @@
     <div class="movie_box">
         {#each $movieNames as movieTitle}
             <div class="movie_container">
-                <h3>{movieTitle[0]}</h3>
-                <img src={`https://www.themoviedb.org/t/p/original${movieTitle[1]}`} alt="movie_poster"/>
+                <img class="movie_poster" src={`https://www.themoviedb.org/t/p/original${movieTitle[1]}`} alt="movie_poster"/>
+                <h3 class="movie_title" >{movieTitle[0]}</h3>
             </div>
         {/each}
     </div>
@@ -86,8 +86,26 @@
         border: 2px solid black;
         border-radius: 5px;
     }
-
-    img {
-        width: 100px;
+    .movie_container:hover {
+        box-shadow: 3px 3px black;
+        cursor: pointer;
     }
+
+    .movie_poster {
+        width: 110px;
+        height: 170px;
+        margin: 10px;
+    }
+    .movie_poster:hover {
+        box-shadow: 0px 0px black;
+    }
+    
+    .movie_title {
+        margin: 0 0;
+        text-align: center;
+    }
+    .movie_title:hover {
+        box-shadow: 0px 0px black;
+    }
+
 </style>
