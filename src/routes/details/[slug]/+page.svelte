@@ -1,16 +1,14 @@
 <script>
     import { page } from '$app/stores';
-    import { movieApiData } from '../../../store.js';    
+    import { movieApiData } from '../../../store.js';
+
+    const selectedMovie = $movieApiData.filter(x => x.title.includes($page.params.slug))[0];
 </script>
 
 
 <main>
-    <h1>Welcome to the details page for: {$page.params.slug}</h1>
-    {#each $movieApiData as movie}
-        {#if movie.title === $page.params.slug}
-            <h2>{movie.overview}</h2>
-        {/if}
-    {/each}
+    <h1>Welcome to the details page for: {selectedMovie.title}</h1>
+    <h2>{selectedMovie.overview}</h2>
 </main>
 
 
