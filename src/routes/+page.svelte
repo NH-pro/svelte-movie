@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import { movieApiData, movieNames } from '../store.js';
+    import { movieApiData } from '../store.js';
     
     const movieKey = import.meta.env.VITE_TMDB_API_KEY
 
@@ -8,11 +8,11 @@
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${movieKey}&language=en-US&page=1`)
         .then(response => response.json())
         .then(data => {
-            console.log(data.results)
-            movieApiData.set(data.results)
+            console.log(data.results);
+            movieApiData.set(data.results);
         })
         .catch(error => {
-            console.log(error)
+            console.log(error);
             return [];
         });
     });
@@ -28,10 +28,10 @@
     </header>
 
     <div class="movie_box">
-        {#each $movieNames as movie}
-            <a class="movie_container" href={`../details/${movie[0]}`}>
-                <img class="movie_poster" src={`https://www.themoviedb.org/t/p/original${movie[1]}`} alt="movie_poster"/>
-                <h3 class="movie_title" >{movie[0]}</h3>
+        {#each $movieApiData as movie}
+            <a class="movie_container" href={`../details/${movie.title}`}>
+                <img class="movie_poster" src={`https://www.themoviedb.org/t/p/original${movie.poster_path}`} alt="movie_poster"/>
+                <h3 class="movie_title" >{movie.title}</h3>
             </a>
         {/each}
     </div>
